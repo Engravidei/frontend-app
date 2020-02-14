@@ -107,7 +107,7 @@ const RegistScreen = () => {
                                     name="cpf"
                                     placeholder="Somente Numeros"
                                     className="cadastroCamp"
-                                    type="number"
+                                    type="text"
                                     required
                                 />
                                 <Form.Control.Feedback>Perfeito!</Form.Control.Feedback>
@@ -146,8 +146,7 @@ const RegistScreen = () => {
                                     </Media>
                                 </Col>
                                 <Col xl={10}>
-                                    <p className="mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore
+                                    <p className="mt-1">Compare diariamente a evolução da gestação com informações únicas.
                                     </p>
                                 </Col>
                             </Row>
@@ -160,8 +159,7 @@ const RegistScreen = () => {
                                 </Media>
                             </Col>
                             <Col xl={10}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore
+                                <p>Veja dicas e tarefas essenciais para uma gestação tranquila e segura.
                                 </p>
                             </Col>
                         </Row>
@@ -174,8 +172,8 @@ const RegistScreen = () => {
                                 </Media>
                             </Col>
                             <Col xl={10}>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore
+                                <p>A gravidez é uma das etapa mais importantes da nossa vida. Pensando nisso, queremos trazer a melhor experiência possível
+                                    nesse período. 
                                 </p>
                             </Col>
                         </Row>
