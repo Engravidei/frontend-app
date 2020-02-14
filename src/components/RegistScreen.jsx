@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {Redirect} from "react-router-dom";
 //importações remotas
 
 import '../fonts/AvenirBook.otf';
@@ -24,28 +25,30 @@ const RegistScreen = () => {
     
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [cpf, setCpf] = useState("");
     const [senha, setSenha] = useState("");
 
+    const redirect = () => {
+        return (<Redirect to={"/home"} />);
+        
+    }
     const handleSubmit = event => {
         event.preventDefault();
         const form = {
             name: name,
             email: email, 
-            cpf: cpf,
             senha: senha
         }
         console.log(form);
-
-        cadastro(form).then(res => {
-            SigIn(form.email, form.senha).then(resp => {
+        
+        cadastro(form).then(resp => {
+           // SigIn(form.email, form.senha).then(resp => {
                 console.log(resp);
                 setCookie("token", resp.data.sessao.token, {expires: Number.parseInt(resp.data.sessao.duracao)} )
                 setCookie("userID", resp.data.usuario.id)
-                
-            }).catch(error => {
-                console.log(error);
-            })
+                redirect();
+          //  }).catch(error => {
+               // console.log(error);
+         //   })
         }).catch(error =>{
             console.log(error);
         })
@@ -103,11 +106,11 @@ const RegistScreen = () => {
                             <Form.Label>CPF</Form.Label>
                             <Form.Group controlId="cpf">
                                 <Form.Control
-                                    onChange={cpf => {setCpf(cpf.target.value)}}
+                                    
                                     name="cpf"
                                     placeholder="Somente Numeros"
                                     className="cadastroCamp"
-                                    type="text"
+                                    type="number"
                                     required
                                 />
                                 <Form.Control.Feedback>Perfeito!</Form.Control.Feedback>
@@ -146,7 +149,8 @@ const RegistScreen = () => {
                                     </Media>
                                 </Col>
                                 <Col xl={10}>
-                                    <p className="mt-1">Compare diariamente a evolução da gestação com informações únicas.
+                                    <p className="mt-1"> O Engravidei, Proporciona um ótimo calendario, integrado entre o médico e sua paciente
+                                    para anotações de consultas e retornos. 
                                     </p>
                                 </Col>
                             </Row>
@@ -159,7 +163,8 @@ const RegistScreen = () => {
                                 </Media>
                             </Col>
                             <Col xl={10}>
-                                <p>Veja dicas e tarefas essenciais para uma gestação tranquila e segura.
+                                <p> Temos como uma das principais funcionalidades, nosso checklist. Onde tanto o médico pode adicionar e remover 
+                                    itens como a gestante.
                                 </p>
                             </Col>
                         </Row>
@@ -172,8 +177,8 @@ const RegistScreen = () => {
                                 </Media>
                             </Col>
                             <Col xl={10}>
-                                <p>A gravidez é uma das etapa mais importantes da nossa vida. Pensando nisso, queremos trazer a melhor experiência possível
-                                    nesse período. 
+                                <p> Nosso objetivo é garantir, por meio de nossas funcionalidades e forma unificada de informação,
+                                    a saúde tanto da gestante quanto do Bebê.
                                 </p>
                             </Col>
                         </Row>
